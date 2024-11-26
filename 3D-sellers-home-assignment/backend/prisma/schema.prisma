@@ -1,0 +1,17 @@
+
+datasource db {
+  provider = "postgresql" // or "postgresql", "mysql", etc.
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Product {
+  id    String  @id @default(uuid())
+  description String
+  name String
+  price Float   // Use Float for decimal numbers
+  type  String
+}
